@@ -26,8 +26,6 @@ while true do
 
     if (not monitor) then
         monitor = periphemu.create("right", "monitor")
-        shell.run("peripherals")
-
         monitor = peripheral.find("monitor")
     end
 

@@ -1,5 +1,4 @@
 
--- chest_monitor.luasdsdsdsdsdsdsd
 function print_inventory_on_monitor(chest, monitor)
     monitor.clear()
     local width, height = monitor.getSize()
@@ -24,6 +23,14 @@ end
 while true do
     local monitor = peripheral.find("monitor")
     local chest = peripheral.find("chest")
+
+    if (not monitor) then
+        monitor = periphemu.create("right", "monitor")
+        shell.run("peripherals")
+
+        monitor = peripheral.find("monitor")
+    end
+
     print_inventory_on_monitor(chest, monitor)
 
     sleep(10)
